@@ -29,7 +29,7 @@ std::tuple<int,int> IOHelper::getYearsAlive(std::string data)
 {
 	std::string birth = data.substr(0, 4), death = data.substr(5, 8);
 	int birthYear = stoi(birth);
-	int deathYear = death == "    " ? 1997 : stoi(death);
+	int deathYear = death == "    " ? 1993 : stoi(death);
 	return std::make_tuple(birthYear, deathYear);
 }
 
