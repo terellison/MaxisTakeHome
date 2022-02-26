@@ -23,13 +23,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Year.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Composer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IOHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimePeriod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
