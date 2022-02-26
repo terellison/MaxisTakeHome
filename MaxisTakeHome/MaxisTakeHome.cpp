@@ -10,7 +10,7 @@ int main()
 	std::vector<Composer>* composerList = IOHelper::GetComposerData("input/dataset.txt");
 	std::vector<Year> timeline;
 
-	for (auto &composer : *composerList)
+	for (auto& composer : *composerList)
 	{
 		std::cout <<
 			"Composer name: " << composer.name << std::endl <<
