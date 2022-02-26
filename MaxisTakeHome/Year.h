@@ -6,6 +6,5 @@ struct Year
 {
 	int currentYear;
 	std::vector<std::string> composersAlive;
-	Year* nextYear = NULL;
 };
-#endif // !YEAR_H
+#endif
