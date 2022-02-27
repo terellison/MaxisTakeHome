@@ -18,7 +18,7 @@
     <ClCompile Include="MaxisTakeHome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IOHelper.cpp">
+    <ClCompile Include="DataReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClInclude Include="Composer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IOHelper.h">
+    <ClInclude Include="DataReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TimePeriod.h">

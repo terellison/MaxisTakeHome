@@ -1,13 +1,13 @@
 #include "Composer.h"
 #include <vector>
 #include <tuple>
-#ifndef IOHELPER_H
-#define IOHELPER_H
+#ifndef DATAREADER_H
+#define DATAREADER_H
 
-static class IOHelper
+static class DataReader
 {
 public:
-	static std::vector<Composer>* GetComposerData(const char* fileName);
+	static std::vector<Composer>* Read(const char* fileName);
 private:
 	static std::tuple<int, int> getYearsAlive(std::string data);
 	static std::string getName(std::string data);

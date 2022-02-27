@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 #include "Composer.h"
-#include "IOHelper.h"
+#include "DataReader.h"
 #include "TimePeriod.h"
 
 int main()

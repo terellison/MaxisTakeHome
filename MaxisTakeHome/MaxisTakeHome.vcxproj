@@ -143,13 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IOHelper.cpp" />
+    <ClCompile Include="DataReader.cpp" />
     <ClCompile Include="MaxisTakeHome.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Composer.h" />
     <ClInclude Include="TimePeriod.h" />
-    <ClInclude Include="IOHelper.h" />
+    <ClInclude Include="DataReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

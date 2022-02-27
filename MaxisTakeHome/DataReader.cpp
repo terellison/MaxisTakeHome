@@ -1,7 +1,7 @@
-#include "IOHelper.h"
+#include "DataReader.h"
 #include <fstream>
 #include <iostream>
-std::vector<Composer>* IOHelper::GetComposerData(const char* fileName)
+std::vector<Composer>* DataReader::Read(const char* fileName)
 {
 	std::vector<Composer>* val = new std::vector<Composer>();
 	std::ifstream inputFile(fileName);
@@ -25,7 +25,7 @@ std::vector<Composer>* IOHelper::GetComposerData(const char* fileName)
 	return val;
 }
 
-std::tuple<int,int> IOHelper::getYearsAlive(std::string data)
+std::tuple<int,int> DataReader::getYearsAlive(std::string data)
 {
 	std::string birth = data.substr(0, 4), death = data.substr(5, 8);
 	int birthYear = stoi(birth);
@@ -33,7 +33,7 @@ std::tuple<int,int> IOHelper::getYearsAlive(std::string data)
 	return std::make_tuple(birthYear, deathYear);
 }
 
-std::string IOHelper::getName(std::string data)
+std::string DataReader::getName(std::string data)
 {
 	return data.substr(data.find(')')+2, data.find('\0'));
 }
