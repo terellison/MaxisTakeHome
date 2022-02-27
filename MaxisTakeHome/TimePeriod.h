@@ -2,8 +2,8 @@
 #define TIMEPERIOD_H
 struct TimePeriod
 {
-	int startYear;
-	int endYear;
-	int composersAlive;
+	unsigned int startYear;
+	unsigned int endYear;
+	unsigned int composersAlive;
 };
 #endif
