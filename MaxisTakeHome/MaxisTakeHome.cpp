@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <map>
 #include "Composer.h"
 #include "IOHelper.h"
@@ -8,36 +7,43 @@
 
 int main()
 {
-	std::vector<Composer>* composerList = IOHelper::GetComposerData("input/dataset.txt");
-	std::map<int, int> years;
+	std::vector<Composer>* composers = DataReader::Read("input/dataset.txt"); // Get data on each composer
+	std::map<int, int> composersPerYear; // associates a year with how many composers were alive during it
 
-	for (auto& composer : *composerList)
+	for (auto& composer : *composers) // for each composer, add 1 to the alive total for each year 
 	{
-		int i = composer.birthYear;
-		while (i <= composer.deathYear)
+		for (int year = composer.birthYear; year <= composer.deathYear; ++year)
 		{
-			++years[i];
-			++i;
+			++composersPerYear[year];
 		}
 	}
-	int maxAlive = 0, mostRecentYear = 0;
-	TimePeriod* greatestTimePeriod = new TimePeriod();
-	for (auto &year : years)
+
+	TimePeriod greatestTimePeriod{};
+
+	for (int year = composersPerYear.begin()->first; year <= 1993; ++year)
 	{
-		if (year.first > greatestTimePeriod->endYear && year.second > greatestTimePeriod->composersAlive) // we've found a new time period to track
+		auto composersAlive = composersPerYear[year];
+
+		//std::cout << "Year: " << year << " Composers alive: " << composersAlive << std::endl;
+
+		if (composersAlive > greatestTimePeriod.composersAlive) // we've found a new time period to track
 		{
-			greatestTimePeriod->startYear = year.first;
-			greatestTimePeriod->composersAlive = year.second;
-			greatestTimePeriod->endYear = year.first;
+			greatestTimePeriod.startYear = year;
+			greatestTimePeriod.composersAlive = composersAlive;
+			greatestTimePeriod.endYear = year;
 		}
 
-		else if (year.first > greatestTimePeriod->startYear && year.second == greatestTimePeriod->composersAlive)
+		else if (composersAlive == greatestTimePeriod.composersAlive)
 		{
-			++greatestTimePeriod->endYear;
+			greatestTimePeriod.endYear = year;
 		}
 	}
 
 	std::cout <<
 		"\nThe most recent time period with the most composers alive is " <<
-		greatestTimePeriod->startYear << " - " << greatestTimePeriod->endYear << " with " << greatestTimePeriod->composersAlive << " composers alive." << std::endl;
+		greatestTimePeriod.startYear << "-" << greatestTimePeriod.endYear <<
+		" with " << greatestTimePeriod.composersAlive <<
+		" composers alive." << std::endl;
+
+	return 0;
 }
