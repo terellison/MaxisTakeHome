@@ -19,7 +19,7 @@ int main()
 		std::free(composer); // free the memory as we no longer need this data
 	}
 
-	std::free(composers);
+	composers->~vector();
 
 	TimePeriod greatestTimePeriod{};
 

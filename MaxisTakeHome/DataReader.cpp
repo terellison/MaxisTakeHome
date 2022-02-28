@@ -16,7 +16,6 @@ std::vector<Composer*>* DataReader::Read(const char* fileName)
 			auto yearsAlive = getYearsAlive(composerLifetime);
 			newComposer->birthYear = std::get<0>(yearsAlive);
 			newComposer->deathYear = std::get<1>(yearsAlive);
-			newComposer->name = getName(line);
 			val->push_back(std::move(newComposer));
 		}
 		inputFile.close();
@@ -32,9 +31,4 @@ std::tuple<int,int> DataReader::getYearsAlive(std::string data)
 	int birthYear = stoi(birth);
 	int deathYear = death == "    " ? ASSUMED_DEATH_YEAR : stoi(death);
 	return std::make_tuple(birthYear, deathYear);
-}
-
-std::string DataReader::getName(std::string data)
-{
-	return data.substr(data.find(')')+2, data.find('\0'));
 }

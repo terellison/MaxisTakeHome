@@ -5,6 +5,5 @@ struct Composer
 {
 	unsigned int birthYear = 0;
 	unsigned int deathYear = 0;
-	std::string name = "";
 };
 #endif
