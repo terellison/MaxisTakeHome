@@ -1,6 +1,7 @@
 #include "DataReader.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 std::vector<Composer*>* DataReader::Read(const char* fileName, const unsigned int ASSUMED_DEATH_YEAR)
 {
 	std::vector<Composer*>* val = new std::vector<Composer*>();

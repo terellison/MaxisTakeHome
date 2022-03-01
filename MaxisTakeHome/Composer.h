@@ -1,4 +1,3 @@
-#include <string>
 #ifndef COMPOSER_H
 #define COMPOSER_H
 struct Composer

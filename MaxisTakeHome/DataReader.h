@@ -1,6 +1,7 @@
 #include "Composer.h"
 #include <vector>
 #include <tuple>
+#include <string>
 #ifndef DATAREADER_H
 #define DATAREADER_H
 
