@@ -7,8 +7,8 @@
 class DataReader
 {
 public:
-	static std::vector<Composer*>* Read(const char* fileName);
+	static std::vector<Composer*>* Read(const char* fileName, const unsigned int ASSUMED_DEATH_YEAR);
 private:
-	static std::tuple<int, int> getYearsAlive(std::string data);
+	static std::tuple<int, int> getYearsAlive(std::string data, const unsigned int ASSUMED_DEATH_YEAR);
 };
 #endif

@@ -7,23 +7,24 @@
 
 int main()
 {
-	std::vector<Composer*>* composers = DataReader::Read("input/dataset.txt"); // Get data on each composer
+	const unsigned int ASSUMED_DEATH_YEAR = 1993; // last year of the sample
+	std::vector<Composer*>* composers = DataReader::Read("input/dataset.txt", ASSUMED_DEATH_YEAR); // Get data on each composer
 	std::map<unsigned int, unsigned int> composersPerYear; // associates a year with how many composers were alive during it
-
+	
 	for (auto& composer : *composers) // for each composer, add 1 to the alive total for each year 
 	{
-		for (unsigned int year = composer->birthYear; year <= composer->deathYear; ++year)
+		for (auto year = composer->birthYear; year <= composer->deathYear; ++year)
 		{
 			++composersPerYear[year];
 		}
 		std::free(composer); // free the memory as we no longer need this data
 	}
 
-	composers->~vector();
+	composers->~vector(); // we don't need this anymore
 
 	TimePeriod greatestTimePeriod{};
 
-	for (int year = composersPerYear.begin()->first; year <= 1993; ++year)
+	for (auto year = composersPerYear.begin()->first; year <= ASSUMED_DEATH_YEAR; ++year)
 	{
 		auto composersAlive = composersPerYear[year];
 
